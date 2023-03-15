@@ -15,14 +15,23 @@ function adicionarLinha(nome, telefone) {
     tabela.appendChild(linha);
 }
 
+function validarTelefone(telefone) {
+    const regex = /^\d{2}\s\d{4,5}-\d{4}$/;
+    return regex.test(telefone);
+}
+
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const nome = document.querySelector("#nome").value;
     const telefone = document.querySelector("#telefone").value;
 
-    adicionarLinha(nome, telefone);
+    if (!validarTelefone(telefone)) {
+        alert("Número de telefone inválido. O número deve estar no formato ## #####-####");
+        return;
+    }
 
+    adicionarLinha(nome, telefone);
 
     form.reset();
 });
