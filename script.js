@@ -16,7 +16,7 @@ function adicionarLinha(nome, telefone) {
 }
 
 function validarTelefone(telefone) {
-    const regex = /^\d{2}\s\d{4,5}-\d{4}$/;
+    const regex = /^\d{2}\s\d{5}-\d{4}$/;
     return regex.test(telefone);
 }
 
